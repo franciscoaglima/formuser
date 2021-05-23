@@ -38,12 +38,19 @@ class _FormUserPageState extends State<FormUserPage> {
                                }, 
                             child: Text("Sim"),     
                            ),
+                           ElevatedButton(
+                             onPressed:() {
+                             Navigator.pop(context);
+                           },
+                           child: Text("Claro"),
+                           ),
                          ],
                        ); 
                   });
                  },
                  child: Text("Alerta"),
                 ),
+                
               ),
             ],
           ),
