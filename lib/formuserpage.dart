@@ -13,61 +13,46 @@ class _FormUserPageState extends State<FormUserPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(title: Text("Form Login"),),
+      backgroundColor: Colors.blue,
         body: Form(
             key: _formKey,
             child: Column(
-              children: [
-                TextFormField(
-                  validator: (text) {
-                   if(text == null || text.isEmpty) {
-                  return "Texto é Obrigatório";
-                   }
-                    return null;
-                  },
-             decoration: InputDecoration(
-               hintText: "Nome",
-             ),
-             onChanged: (text) {
-                name = text;
-             },
-            ),
+            children: [
+                Expanded(
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height,
+                        width: MediaQuery.of(context).size.width,
+                        color: Colors.blue,
+                       ),
+                      Center( 
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+//                              Text("Movies New",style: TextStyle(fontSize: 20,color: Colors.white),                                  ),
+                                    Container( 
+                                    height: 560,
+                                    width: 280,
+                                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.white,),
 
-            TextFormField(
-              // ignore: missing_return
-              validator: (text) {
-                if(text == null || text.isEmpty) {
-                  return "SobreNome é Obrigatório";
-                }
-                return null;                
-              },
-             decoration: InputDecoration(
-               hintText: "SobreNome",
-             ),
-             onChanged: (text) {
-                sobname = text;
-             },              
-            ),
+                                    ),
+                                  Text(" ",style: TextStyle(fontSize: 10,color: Colors.white)),  
 
-                ElevatedButton( 
-                  onPressed: () { 
-                    final isValid = _formKey.currentState!.validate();
+ 
 
-                    if (isValid) {
-                      showDialog(
-                        context: context, 
-                        builder: (context) {
-                          return AlertDialog( 
-                            title: Text("$name $sobname"),
-                          );
-                        });
-                    }
-                  },
-                  child: Text("Validar"),
-                )
-             ],
-            ),
-          ),
-     );
+                                ],
+                               ),
+                             ),
+
+
+                         ],
+                        ),
+                      ),
+              ]
+        ),
+       ),
+    );
   }
 }
